@@ -1,4 +1,6 @@
 **/routes/*
 **/__pycache__/*
 **/outputs/*
-**/routes_custom/*
+**/routes_test/
+**/agents/
+**/routes_dqn/
