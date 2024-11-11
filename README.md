@@ -47,13 +47,16 @@ Built on top of the multi-route environment, adding:
 
 Training results comparing DQN and A2C algorithms on the multi-route environment:
 
-[Insert graph/image showing comparative performance]
+![Multi-Route Wait Times](assets/multi_wait_times.png)
+
+![Multi-Route Cars Stopped](assets/multi_cars_stopped.png)
 
 ### Emergency Vehicle Prioritization
 
 Results from DQN training on the emergency environment:
 
-[Insert graph/image showing emergency vehicle metrics]
+![Emergency Wait Times](assets/emergency_wait_times.png)
+
 
 ## Installation
 
