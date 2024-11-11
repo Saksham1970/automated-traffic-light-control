@@ -112,7 +112,7 @@ def main(
     dst_nodes,
     src_prob,
     turn_prob,
-    emergency_prob,
+    emergency_probs,
     shape,
     number_cars,
     total_timesteps,
@@ -125,7 +125,7 @@ def main(
         dst_nodes (list): List of destination nodes. Keep the order as SWNE
         src_prob (list): List of probabilities for selecting a source node. Keep the order as SWNE
         turn_prob (list): List of probabilities for determining a turn. Keep the order as U turn, left, straight, right
-        emergency_prob (float): Probability of selecting an emergency vehicle.
+        emergency_probs (list): List of Probability of selecting an emergency vehicle.
         shape (float): Shape parameter for the Weibull distribution (trip times).
         number_cars (int): Number of vehicles/trips to generate.
         total_timesteps (int): Total simulation timesteps over which trips will depart.
@@ -134,7 +134,7 @@ def main(
     root = generate_root()
     for ind, time in enumerate(timesteps):
         src_ind, dst_ind = choose_src_dst(src_prob, turn_prob)
-        typ = choose_emergency(emergency_prob)
+        typ = choose_emergency(emergency_probs[src_ind])
         trip = ETree.Element(
             "trip",
             attrib={
@@ -158,7 +158,7 @@ if __name__ == "__main__":
         dst_nodes,
         src_prob,
         turn_prob,
-        emergency_prob,
+        emergency_probs,
         shape,
         number_cars,
         total_timesteps,
