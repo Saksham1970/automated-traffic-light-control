@@ -1,7 +1,8 @@
 **/__pycache__/*
 
 **/outputs/*
-**/test/
+**/test/*
+**/train/*
 
-**/agents/
-**/archived_agents/
+**/agents/*
+**/archived_agents/*

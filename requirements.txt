@@ -1,4 +1,4 @@
-sumo-rl
-gymnasium[box2d]
-matplotlib
-stable-baselines3
+sumo-rl==1.4.5
+gymnasium==0.29.1
+matplotlib==3.9.2
+stable-baselines3==2.3.2

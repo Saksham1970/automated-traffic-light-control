@@ -65,9 +65,6 @@ Results from DQN training on the emergency environment:
 git clone https://github.com/Saksham1970/automated-traffic-light-control.git
 cd automated-traffic-light-control
 
-# (Optional, might be needed for installation of gymnasium[box2d]) Install swig
-# pip install swig
-
 # Install dependencies
 pip install -r requirements.txt
 ```
