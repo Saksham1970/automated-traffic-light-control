@@ -1,5 +1,4 @@
 sumo-rl
-swig
 gymnasium[box2d]
 matplotlib
 stable-baselines3

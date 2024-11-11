@@ -11,7 +11,7 @@ from sumo_rl.environment.observations import DefaultObservationFunction, Observa
 
 LIBSUMO = "LIBSUMO_AS_TRACI" in os.environ
 
-class CustomSumoEnv(SumoEnvironment):
+class MultiRouteSumoEnvironment(SumoEnvironment):
     def __init__(
         self,
         net_file: str,
@@ -169,3 +169,34 @@ class CustomSumoEnv(SumoEnvironment):
 
         if self.use_gui or self.render_mode is not None:
             self.sumo.gui.setSchema(traci.gui.DEFAULT_VIEW, "real world")
+            
+class EmergencySumoEnvironment(MultiRouteSumoEnvironment):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        
+    def _compute_info(self):
+        """Simplified info dict focusing on key metrics."""
+        info = {"step": self.sim_step}
+        
+        if self.add_system_info:
+            info.update(self._get_system_info())
+        if self.add_per_agent_info:
+            info.update(self._get_per_agent_info())
+        
+        # Track basic emergency metrics
+        total_emergency_waiting_time = 0
+        total_emergency_vehicles = 0
+        
+        for ts_id in self.ts_ids:
+            ts = self.traffic_signals[ts_id]
+            for lane in ts.lanes:
+                for veh_id in ts.sumo.lane.getLastStepVehicleIDs(lane):
+                    if ts.sumo.vehicle.getTypeID(veh_id) == 'emergency':
+                        total_emergency_waiting_time += ts.sumo.vehicle.getAccumulatedWaitingTime(veh_id)
+                        total_emergency_vehicles += 1
+        
+        info['emergency_waiting_time'] = total_emergency_waiting_time
+        info['emergency_vehicle_count'] = total_emergency_vehicles
+        
+        self.metrics.append(info.copy())
+        return info
