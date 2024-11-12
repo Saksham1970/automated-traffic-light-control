@@ -1,10 +1,10 @@
 <edges>
-    <edge id="N-IN" from="North" to="TrafficLight" priority="78" type="highway"/>
-    <edge id="S-OUT" from="TrafficLight" to="South" priority="78" type="highway"/>
-    <edge id="W-IN" from="West" to="TrafficLight" priority="78" type="highway"/>
-    <edge id="E-OUT" from="TrafficLight" to="East" priority="78" type="highway"/>
-    <edge id="S-IN" from="South" to="TrafficLight" priority="78" type="highway"/>
-    <edge id="N-OUT" from="TrafficLight" to="North" priority="78" type="highway"/>
-    <edge id="E-IN" from="East" to="TrafficLight" priority="78" type="highway"/>
-    <edge id="W-OUT" from="TrafficLight" to="West" priority="78" type="highway"/>
+    <edge id="N-IN"     from="North"        to="TrafficLight"   priority="78" type="highway"/>
+    <edge id="S-OUT"    from="TrafficLight" to="South"          priority="78" type="highway"/>
+    <edge id="W-IN"     from="West"         to="TrafficLight"   priority="78" type="highway"/>
+    <edge id="E-OUT"    from="TrafficLight" to="East"           priority="78" type="highway"/>
+    <edge id="S-IN"     from="South"        to="TrafficLight"   priority="78" type="highway"/>
+    <edge id="N-OUT"    from="TrafficLight" to="North"          priority="78" type="highway"/>
+    <edge id="E-IN"     from="East"         to="TrafficLight"   priority="78" type="highway"/>
+    <edge id="W-OUT"    from="TrafficLight" to="West"           priority="78" type="highway"/>
 </edges>

@@ -39,11 +39,10 @@ class MultiRouteSumoEnvironment(SumoEnvironment):
         additional_sumo_cmd: Optional[str] = None,
         render_mode: Optional[str] = None,
     ) -> None:
-        """Initialize CustomSumoEnv."""
-        # Call the parent class constructor with a dummy route_file
+        """Initialize MultiRouteSumoEnvironment."""
         super().__init__(
             net_file=net_file,
-            route_file=route_files[0],  # Pass the first route file as a dummy
+            route_file=route_files[0],
             out_csv_name=out_csv_name,
             use_gui=use_gui,
             virtual_display=virtual_display,
@@ -131,7 +130,7 @@ class MultiRouteSumoEnvironment(SumoEnvironment):
             "-n",
             self._net,
             "-r",
-            self.current_route_file,  # Use the current route file
+            self.current_route_file,
             "--max-depart-delay",
             str(self.max_depart_delay),
             "--waiting-time-memory",
@@ -183,7 +182,6 @@ class EmergencySumoEnvironment(MultiRouteSumoEnvironment):
         if self.add_per_agent_info:
             info.update(self._get_per_agent_info())
         
-        # Track basic emergency metrics
         total_emergency_waiting_time = 0
         total_emergency_vehicles = 0
         
